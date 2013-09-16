@@ -338,7 +338,6 @@ void chunkcontent::change_cont(chunk* chp){
         }
         buildcombo->clear();
         //buildcombo->addItem("");
-        buildcombo->addItem("");
 
         while(building_list_){
             if(!buildings || (building_list_->give_IN())!=(buildings->give_IN())){
