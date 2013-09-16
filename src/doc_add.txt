@@ -1,0 +1,21 @@
+How to: Hauptmenüpunkt hinzufügen:
+    1. Klasse (von QWidget geerbt) erstellen mit inhalt des neuen fenster das über den neuen menüpunkt geöffnet wird
+    2. menu.cpp -> Button hinzufügen, ins vertikale Layout einfügen und zu Signalmapper hinzufügen
+    3. window1.cpp -> #include einfügen für neue QWidget klasse
+            in konstruktor funktion: Instanz der Klasse erstellen und per add_cont hinzufügen
+
+How to: Gebäudeeigenschaften hinzufügen:
+    1. building_props.h ->  - private eingenschaften hinzufügen
+                            - in den Konstruktor einfügen, evt. give/set funktionen deklarieren
+    2. building_props.cpp-> - zu save funktion hinzufügen
+                            - eingangsvariablen im Konstruktor und switch funktionen hinzu fügen
+                            - in selber reihenfolge wie in der save funktion in der konstruktor(&Qfile) funktion auslesen und darauf achten dass in dieser der pmpuffer groß genug ist für alle parameter
+                            - ggf die give/set funktionen erstellen definieren
+    3. contaddbuild.h ->    - pro variable einen qcombobox pointer hinzufügen oder anderes
+    4. contaddbuild.cpp ->  - in funktion add_build (): - in selber reiehnfolge wie für den konstruktor die currentIndex funktionen hinzufügen
+                            - im konstruktor: instanzen der privat in dem Widget abgespeicherten QComboboxen oder anderes mit auswahlmöglichkeiten erzeugen
+                            - neue items in das gridlayout einbauen
+    5. chunkcontent.h ->    - pro eigenschaft die direkt den chunk betrifft neues privates label (für gebäudebeschreibung und ggf auch für siedlungsbeschreibung) erstellen
+    6. chunkcontent.cpp ->  - pro neuer eigenschaft die direkt den chunk betrifft ZWEI neue label erstellen (das vordere nur als bezeichung, das hintere als privates), für gebäudebeschreibung, ggf aber auch siedlungsbeschreibung
+                            - neue items ins gridlayout einfügen
+
